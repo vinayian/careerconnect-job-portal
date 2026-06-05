@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Applications - Job Portal</title>
+
+    <style>
+
+        *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial,sans-serif;
+        }
+
+        body{
+        background:#f4f6f9;
+        }
+
+        .navbar{
+        background:#1e3a8a;
+        padding:15px 50px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        color:white;
+        }
+
+        .navbar a{
+        color:white;
+        text-decoration:none;
+        margin-left:20px;
+        font-weight:bold;
+        }
+
+        .page-title{
+        text-align:center;
+        padding:40px;
+        }
+
+        .page-title h1{
+        color:#1e3a8a;
+        font-size:40px;
+        }
+
+        .apps-container{
+        width:90%;
+        margin:auto;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+        gap:25px;
+        padding-bottom:50px;
+        }
+
+        .app-card{
+        background:white;
+        padding:25px;
+        border-radius:12px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        transition:0.3s;
+        }
+
+        .app-card:hover{
+        transform:translateY(-5px);
+        }
+
+        .app-card h2{
+        color:#2563eb;
+        margin-bottom:15px;
+        }
+
+        .app-info{
+        margin:10px 0;
+        color:#444;
+        }
+
+        .status{
+        display:inline-block;
+        margin-top:15px;
+        padding:8px 15px;
+        background:#dcfce7;
+        color:#166534;
+        font-weight:bold;
+        border-radius:20px;
+        }
+
+        .footer{
+        background:#1e3a8a;
+        color:white;
+        text-align:center;
+        padding:20px;
+        margin-top:40px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>Job Portal</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/jobs-page">Jobs</a>
+        <a href="/users-page">Users</a>
+        <a href="/applications-page">Applications</a>
+    </div>
+</div>
+
+<div class="page-title">
+    <h1>Job Applications</h1>
+    <p>Track all submitted applications</p>
+</div>
+
+<div class="apps-container">
+
+    <div class="app-card" th:each="app : ${applications}">
+
+        <h2>
+            Application #
+            <span th:text="${app.id}"></span>
+        </h2>
+
+        <div class="app-info">
+            <strong>User ID:</strong>
+            <span th:text="${app.userId}"></span>
+        </div>
+
+        <div class="app-info">
+            <strong>Job ID:</strong>
+            <span th:text="${app.jobId}"></span>
+        </div>
+
+        <div class="status" th:text="${app.status}"></div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    © 2026 Job Portal | Spring Boot + Thymeleaf
+</div>
+
+</body>
+</html>

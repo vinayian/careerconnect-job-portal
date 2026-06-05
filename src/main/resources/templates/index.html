@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Job Portal Dashboard</title>
+
+    <style>
+
+        *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial,sans-serif;
+        }
+
+        body{
+        background:#f4f6f9;
+        }
+
+        .navbar{
+        background:#1e3a8a;
+        padding:15px 50px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        color:white;
+        }
+
+        .navbar a{
+        color:white;
+        text-decoration:none;
+        margin-left:20px;
+        font-weight:bold;
+        }
+
+        .hero{
+        text-align:center;
+        padding:50px;
+        }
+
+        .hero h1{
+        font-size:50px;
+        color:#1e3a8a;
+        margin-bottom:15px;
+        }
+
+        .stats{
+        display:flex;
+        justify-content:center;
+        gap:30px;
+        flex-wrap:wrap;
+        padding:20px;
+        }
+
+        .stat-card{
+        background:white;
+        width:250px;
+        padding:30px;
+        border-radius:12px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        text-align:center;
+        }
+
+        .stat-card h2{
+        font-size:40px;
+        color:#2563eb;
+        }
+
+        .actions{
+        display:flex;
+        justify-content:center;
+        gap:30px;
+        padding:40px;
+        flex-wrap:wrap;
+        }
+
+        .action-card{
+        background:white;
+        width:300px;
+        padding:25px;
+        border-radius:12px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        text-align:center;
+        }
+
+        .btn{
+        display:inline-block;
+        margin-top:15px;
+        padding:10px 20px;
+        background:#2563eb;
+        color:white;
+        text-decoration:none;
+        border-radius:6px;
+        }
+
+        .footer{
+        background:#1e3a8a;
+        color:white;
+        text-align:center;
+        padding:20px;
+        margin-top:40px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>Job Portal</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/jobs-page">Jobs</a>
+        <a href="/users-page">Users</a>
+        <a href="/applications-page">Applications</a>
+    </div>
+</div>
+
+<div class="hero">
+    <h1>Job Portal Dashboard</h1>
+    <p>Manage Jobs, Users and Applications</p>
+</div>
+
+<div class="stats">
+
+    <div class="stat-card">
+        <h2 th:text="${jobCount}"></h2>
+        <p>Total Jobs</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 th:text="${userCount}"></h2>
+        <p>Total Users</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 th:text="${applicationCount}"></h2>
+        <p>Total Applications</p>
+    </div>
+
+</div>
+
+<div class="actions">
+
+    <div class="action-card">
+        <h3>Jobs</h3>
+        <p>Browse available jobs.</p>
+        <a href="/jobs-page" class="btn">View Jobs</a>
+    </div>
+
+    <div class="action-card">
+        <h3>Users</h3>
+        <p>Manage registered users.</p>
+        <a href="/users-page" class="btn">View Users</a>
+    </div>
+
+    <div class="action-card">
+        <h3>Applications</h3>
+        <p>Track applications.</p>
+        <a href="/applications-page" class="btn">View Applications</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    © 2026 Job Portal | Spring Boot + Thymeleaf
+</div>
+
+</body>
+</html>

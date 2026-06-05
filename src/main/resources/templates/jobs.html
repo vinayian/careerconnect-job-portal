@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Jobs - Job Portal</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        .navbar{
+            background:#1e3a8a;
+            color:white;
+            padding:15px 50px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .navbar h2{
+            font-size:28px;
+        }
+
+        .navbar a{
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+            font-weight:bold;
+        }
+
+        .page-title{
+            text-align:center;
+            padding:40px 20px;
+        }
+
+        .page-title h1{
+            color:#1e3a8a;
+            margin-bottom:10px;
+        }
+
+        .jobs-container{
+            width:90%;
+            margin:auto;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:25px;
+            padding-bottom:50px;
+        }
+
+        .job-card{
+            background:white;
+            border-radius:12px;
+            padding:25px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .job-card:hover{
+            transform:translateY(-5px);
+        }
+
+        .job-card h2{
+            color:#2563eb;
+            margin-bottom:10px;
+        }
+
+        .company{
+            font-weight:bold;
+            color:#333;
+            margin-bottom:8px;
+        }
+
+        .location{
+            color:#666;
+            margin-bottom:8px;
+        }
+
+        .salary{
+            color:green;
+            font-weight:bold;
+            margin-top:10px;
+        }
+
+        .footer{
+            text-align:center;
+            background:#1e3a8a;
+            color:white;
+            padding:20px;
+            margin-top:30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>Job Portal</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/jobs-page">Jobs</a>
+        <a href="/users-page">Users</a>
+        <a href="/applications-page">Applications</a>
+    </div>
+</div>
+
+<div class="page-title">
+    <h1>Available Jobs</h1>
+    <p>Browse available opportunities</p>
+</div>
+
+<div class="jobs-container">
+
+    <div class="job-card" th:each="job : ${jobs}">
+
+        <h2 th:text="${job.title}"></h2>
+
+        <div class="company"
+             th:text="${job.company}">
+        </div>
+
+        <div class="location">
+            📍 <span th:text="${job.location}"></span>
+        </div>
+
+        <p th:text="${job.description}"></p>
+
+        <div class="salary">
+            ₹ <span th:text="${job.salary}"></span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    © 2026 Job Portal | Spring Boot + Thymeleaf
+</div>
+
+</body>
+</html>
